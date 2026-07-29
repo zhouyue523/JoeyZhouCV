@@ -9,20 +9,22 @@ export default function Hero() {
   })
   const moonY = useTransform(scrollYProgress, [0, 1], [0, -100])
   const [bg, setBg] = useState('checking')
-  const [upgrade, setUpgrade] = useState(false)
+  const [showVideo, setShowVideo] = useState(false)
 
   useEffect(() => {
     const img = new Image()
-    img.onload = () => setBg('image')
+    img.onload = () => {
+      setBg('image')
+      const video = document.createElement('video')
+      video.preload = 'auto'
+      video.muted = true
+      video.loop = true
+      video.playsInline = true
+      video.src = '/videos/hero-bg.mp4'
+      video.oncanplay = () => setShowVideo(true)
+    }
     img.onerror = () => setBg('moon')
     img.src = '/images/hero-bg.jpg'
-    const t = setTimeout(() => {
-      const video = document.createElement('video')
-      video.preload = 'none'
-      video.src = '/videos/hero-bg.mp4'
-      video.oncanplay = () => setUpgrade(true)
-    }, 4000)
-    return () => clearTimeout(t)
   }, [])
 
   return (
@@ -40,7 +42,7 @@ export default function Hero() {
         />
       )}
 
-      {bg === 'image' && upgrade && (
+      {showVideo && (
         <video
           key="hero-vid"
           src="/videos/hero-bg.mp4"
@@ -48,7 +50,7 @@ export default function Hero() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover z-[1]"
+          className="absolute inset-0 w-full h-full object-cover z-[1] transition-opacity duration-1000"
         />
       )}
 
@@ -68,14 +70,25 @@ export default function Hero() {
         <div className="absolute inset-0 bg-space z-0" />
       )}
 
+      {/* Scroll hint */}
       <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2.4, repeat: Infinity }}
-        className="absolute bottom-10 z-10"
+        animate={{ opacity: [0.5, 1, 0.5] }}
+        transition={{ duration: 1.8, repeat: Infinity }}
+        className="absolute bottom-8 z-10 flex flex-col items-center gap-3"
       >
-        <span className="text-[9px] tracking-[0.4em] text-ink/25 font-mono">
-          ↓ SCROLL
-        </span>
+        <motion.svg
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.4, repeat: Infinity }}
+          className="w-5 h-5 text-ink/40"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </motion.svg>
+        <span className="text-[11px] tracking-[0.5em] text-ink/45 font-mono">向下滑动</span>
+        <span className="text-[9px] tracking-[0.3em] text-ink/20 font-mono">SCROLL</span>
       </motion.div>
     </section>
   )

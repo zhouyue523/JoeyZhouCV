@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLang } from '../i18n'
 import SectionHeading from './SectionHeading'
 
 const PLATFORM = {
-  weixin: { label: '微信视频号', en: 'WeChat', color: 'text-green-400' },
+  weixin: { label: '微信视频号 · 需扫码观看', en: 'WeChat · QR needed', color: 'text-green-400' },
   douyin: { label: '抖音', en: 'Douyin', color: 'text-cyan-400' },
   xiaohongshu: { label: '小红书', en: 'RED', color: 'text-rose' },
 }
@@ -27,6 +28,13 @@ function VideoCard({ item, lang }) {
           />
         ) : (
           <div className="absolute inset-0 vhs-grad">
+            {item.poster && (
+              <img
+                src={`/images/${item.poster}`}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 transition-opacity"
+              />
+            )}
             <div className="absolute inset-0 tv-grid" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:border-amber/50 transition-all duration-500">
