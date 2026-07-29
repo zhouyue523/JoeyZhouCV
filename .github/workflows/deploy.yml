@@ -14,9 +14,7 @@ jobs:
         with:
           node-version: 22
 
-      - run: npm install --no-optional
-      - run: npm install @rollup/rollup-linux-x64-gnu --no-save
-      - run: npm run build
+      - run: npm install
       - run: npm run build
 
       - uses: peaceiris/actions-gh-pages@v4
