@@ -10,10 +10,10 @@
   --color-teal: #5ce8c8;
   --color-amber: #f5c044;
   --color-rose: #ff4d6d;
-  --font-display: "Bebas Neue", "Noto Serif SC", serif;
-  --font-song: "Noto Serif SC", serif;
-  --font-body: "Space Grotesk", "Noto Sans SC", system-ui, sans-serif;
-  --font-mono: "Space Mono", "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-song: "PingFang SC", "STSong", "SimSun", "Noto Serif SC", serif;
+  --font-body: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, sans-serif;
+  --font-mono: "SF Mono", "Menlo", "Monaco", "Consolas", "Courier New", monospace;
 }
 
 ::selection {
