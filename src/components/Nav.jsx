@@ -29,7 +29,7 @@ export default function Nav({ view, setView }) {
       >
         <span className="text-amber text-base leading-none mt-0.5">&#9724;</span>
         <span className="text-[10px] tracking-[0.28em] text-ink/50 font-mono group-hover:text-ink transition-colors">
-          {ME.nameEn} · SPACE COWBOY
+          {ME.nameEn} · PORTFOLIO
         </span>
       </button>
 

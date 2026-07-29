@@ -51,10 +51,10 @@ const DICT = {
       ],
     },
     marquee: {
-      m1: '✦ SEE YOU SPACE COWBOY  ✦  营销的目的是让推销变得多余  ✦  复古 · 霓虹 · 爵士  ✦  区域营销操盘手',
+      m1: '✦  营销的目的是让推销变得多余  ✦  复古 · 霓虹 · 爵士  ✦  区域营销操盘手',
       m2: '✦  洞察 · 连接 · 内容 · 转化  ✦  全渠道矩阵  ✦  300+ 账号孵化  ✦  10 个成功出圈  ✦  50+ 条百万爆款',
       outro:
-        '✦ SEE YOU SPACE COWBOY  ✦  下次见 · 在某个城市的某场路演  ✦  SIDE A · END',
+        '✦  下次见 · 在某个城市的某场路演  ✦  SIDE A · END',
     },
     interlude1: {
       label: 'TRANSITION · 幕间',
@@ -68,12 +68,12 @@ const DICT = {
     },
     profile: {
       part: 'PART  01',
-      en: 'THE COWBOY FILE',
-      title: '牛仔档案',
+      en: 'THE FILE',
+      title: '个人档案',
       sub: '基本信息 · BASIC INFO',
       fileNo: 'CASE FILE No.2026-001',
       stamp: 'MARKETING OPS',
-      quote: '在品牌与宇宙之间，做一名浪漫的牛仔。',
+      quote: '好的营销，是对人的理解、对内容的直觉、对节奏的掌控。',
       skillsTitle: '核心能力 · CORE ARSENAL',
       skills: [
         {
@@ -310,50 +310,50 @@ const DICT = {
       items: [
         {
           no: '04-01',
-          t: '油画创作',
+          t: 'Oil Painting',
           en: 'OIL PAINTING',
-          d: '画布是另一块屏幕，颜料是另一种文案。',
+          d: 'The canvas is another screen. Paint is another kind of copy.',
           img: 'hobby-painting',
         },
         {
           no: '04-02',
-          t: '概念场景设计',
+          t: 'Concept Art',
           en: 'CONCEPT ART',
-          d: '为每一个想象构建它的世界——用设计语言搭建视觉叙事空间。',
+          d: 'Building worlds from imagination — visual storytelling through design language.',
           img: 'hobby-concept',
         },
         {
           no: '04-03',
-          t: '旅行',
+          t: 'Travel',
           en: 'TRAVEL',
-          d: '收集世界的配色方案与人间烟火。',
+          d: 'Collecting the world\'s color palettes and human stories, one city at a time.',
           img: 'hobby-travel',
         },
         {
           no: '04-04',
-          t: '慢跑',
+          t: 'Running',
           en: 'RUNNING',
-          d: '每路过一座城市都要用脚步打卡核心路线——运动数据是另一种成绩单。',
+          d: 'Every city I pass through, I map its best routes with my feet — fitness data is my other scorecard.',
           img: 'hobby-running',
         },
         {
           no: '04-05',
-          t: '3D 形象',
+          t: '3D Avatar',
           en: '3D AVATAR',
-          d: '给自己捏了一个数字分身——永远好奇，永远试新。',
+          d: 'Built a digital twin of myself — forever curious, forever exploring the new.',
           img: 'avatar',
         },
         {
           no: '04-06',
-          t: '手绘动画《神经女侠》',
+          t: 'Animated Short "Nerve Heroine"',
           en: 'NERVE HEROINE',
-          d: '独立手绘创作动画短片——用逐帧画笔讲一个属于自己宇宙的故事。',
+          d: 'Hand-drawn animated short — telling a story from my own universe, frame by frame.',
           video: 'nerve-heroine',
         },
       ],
     },
     footer: {
-      line1: 'SEE YOU SPACE COWBOY…',
+      line1: 'THANKS FOR WATCHING',
       line2: '下次见 · 在某个城市的某场路演',
       contact: '联系方式',
       philosophy: '营销哲思',
@@ -413,7 +413,7 @@ const DICT = {
       endingT: '回到德鲁克',
       ending:
         '「让推销变得多余」不是营销人的终点，而是起点。愿我们做的每一次营销，都配得上消费者的喜欢。',
-      outro: 'SEE YOU SPACE COWBOY…',
+      outro: '—',
       back: '返回首页 BACK HOME',
     },
   },
@@ -452,10 +452,10 @@ const DICT = {
       ],
     },
     marquee: {
-      m1: '✦ SEE YOU SPACE COWBOY  ✦  The aim of marketing is to make selling superfluous  ✦  Retro · Neon · Jazz  ✦  Regional Marketing Lead',
+      m1: '✦  The aim of marketing is to make selling superfluous  ✦  Retro · Neon · Jazz  ✦  Regional Marketing Lead',
       m2: '✦  Insight · Connection · Content · Conversion  ✦  Omni-channel Matrix  ✦  300+ Accounts  ✦  10 Incubated  ✦  50+ Million-View Hits',
       outro:
-        '✦ SEE YOU SPACE COWBOY  ✦  Until next time, at some pop-up in some city  ✦  SIDE A · END',
+        '✦  Until next time, at some pop-up in some city  ✦  SIDE A · END',
     },
     interlude1: {
       label: 'INTERMISSION',
@@ -719,7 +719,7 @@ const DICT = {
       ],
     },
     footer: {
-      line1: 'SEE YOU SPACE COWBOY…',
+      line1: 'THANKS FOR WATCHING',
       line2: 'Until next time, at some pop-up in some city.',
       contact: 'CONTACT',
       philosophy: 'PHILOSOPHY',
@@ -779,7 +779,7 @@ const DICT = {
       endingT: 'Back to Drucker',
       ending:
         '"Making selling superfluous" is not the finish line for a marketer — it is the starting line. May every campaign we run be worthy of the people who love it.',
-      outro: 'SEE YOU SPACE COWBOY…',
+      outro: '—',
       back: 'BACK HOME',
     },
   },
