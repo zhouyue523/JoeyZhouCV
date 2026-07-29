@@ -8,18 +8,22 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   })
   const moonY = useTransform(scrollYProgress, [0, 1], [0, -100])
-  const [bgType, setBgType] = useState('moon')
+  const [bg, setBg] = useState('checking')
+  const [upgrade, setUpgrade] = useState(false)
 
   useEffect(() => {
-    const video = document.createElement('video')
-    video.src = '/videos/hero-bg.mp4'
-    video.oncanplay = () => setBgType('video')
     const img = new Image()
+    img.onload = () => setBg('image')
+    img.onerror = () => setBg('moon')
     img.src = '/images/hero-bg.jpg'
-    img.onload = () => {
-      if (bgType === 'moon') setBgType('image')
-    }
-  }, [bgType])
+    const t = setTimeout(() => {
+      const video = document.createElement('video')
+      video.preload = 'none'
+      video.src = '/videos/hero-bg.mp4'
+      video.oncanplay = () => setUpgrade(true)
+    }, 4000)
+    return () => clearTimeout(t)
+  }, [])
 
   return (
     <section
@@ -28,17 +32,7 @@ export default function Hero() {
     >
       <div className="absolute inset-0 z-10 pointer-events-none neon-frame" />
 
-      {bgType === 'video' && (
-        <video
-          src="/videos/hero-bg.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        />
-      )}
-      {bgType === 'image' && (
+      {bg === 'image' && (
         <img
           src="/images/hero-bg.jpg"
           alt=""
@@ -46,7 +40,19 @@ export default function Hero() {
         />
       )}
 
-      {bgType === 'moon' && (
+      {bg === 'image' && upgrade && (
+        <video
+          key="hero-vid"
+          src="/videos/hero-bg.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-[1]"
+        />
+      )}
+
+      {bg === 'moon' && (
         <motion.div
           style={{ y: moonY }}
           className="absolute right-[6%] top-[14%] z-0 pointer-events-none hidden sm:block"
@@ -58,7 +64,10 @@ export default function Hero() {
         </motion.div>
       )}
 
-      {/* Scroll hint */}
+      {bg === 'checking' && (
+        <div className="absolute inset-0 bg-space z-0" />
+      )}
+
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2.4, repeat: Infinity }}
