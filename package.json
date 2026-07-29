@@ -9,9 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@rollup/rollup-darwin-arm64": "^4.36.0",
+    "@rollup/rollup-darwin-arm64": "^4.62.3",
     "framer-motion": "^12.0.0",
     "lenis": "^1.2.0",
+    "lightningcss-darwin-arm64": "^1.33.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
