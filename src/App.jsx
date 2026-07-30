@@ -34,6 +34,15 @@ export default function App() {
 function Root({ view, navigate }) {
   const { t } = useLang()
 
+  if (view === 'philosophy') {
+    return (
+      <div className="relative">
+        <Nav view={view} setView={navigate} />
+        <Philosophy onBack={() => navigate('home')} />
+      </div>
+    )
+  }
+
   return (
     <div className="relative">
       <Grain />
