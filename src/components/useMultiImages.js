@@ -24,10 +24,8 @@ export function useMultiImages(basePath, max = 40) {
         if (cancelled || stopped) break
         let loaded = null
         for (const ext of EXTS) {
-          const path =
-            i === 0
-              ? `/images/${basePath}.${ext}`
-              : `/images/${basePath}-${i}.${ext}`
+          const name = i === 0 ? `${basePath}.${ext}` : `${basePath}-${i}.${ext}`
+          const path = import.meta.env.BASE_URL + 'images/' + name
           loaded = await tryLoadImg(path)
           if (loaded) break
         }

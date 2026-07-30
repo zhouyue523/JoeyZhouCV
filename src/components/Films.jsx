@@ -19,8 +19,8 @@ function VideoCard({ item, lang }) {
       <div className="aspect-video relative overflow-hidden">
         {!isLink && hasVideo ? (
           <video
-            src={`/videos/${item.v}.mp4`}
-            poster={`/images/film-${item.v}.jpg`}
+            src={import.meta.env.BASE_URL + `videos/${item.v}.mp4`}
+            poster={item.v ? (import.meta.env.BASE_URL + `images/film-${item.v}.jpg`) : undefined}
             controls
             className="absolute inset-0 w-full h-full object-cover"
             onError={() => setHasVideo(false)}
@@ -30,7 +30,7 @@ function VideoCard({ item, lang }) {
           <div className="absolute inset-0 vhs-grad">
             {item.poster && (
               <img
-                src={`/images/${item.poster}`}
+                src={import.meta.env.BASE_URL + 'images/' + item.poster}
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 transition-opacity"
               />

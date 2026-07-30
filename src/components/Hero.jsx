@@ -14,6 +14,7 @@ export default function Hero() {
   const [showVideo, setShowVideo] = useState(false)
 
   useEffect(() => {
+    const base = import.meta.env.BASE_URL
     const img = new Image()
     img.onload = () => {
       setBg('image')
@@ -22,11 +23,11 @@ export default function Hero() {
       video.muted = true
       video.loop = true
       video.playsInline = true
-      video.src = '/videos/hero-bg.mp4'
+      video.src = base + 'videos/hero-bg.mp4'
       video.oncanplay = () => setShowVideo(true)
     }
     img.onerror = () => setBg('moon')
-    img.src = '/images/hero-bg.jpg'
+    img.src = base + 'images/hero-bg.jpg'
   }, [])
 
   /* ── audio logic ── */
@@ -80,15 +81,15 @@ export default function Hero() {
 
       {/* Background audio */}
       <audio ref={audioRef} loop preload="auto" muted className="hidden">
-        <source src="/audio/hero-bgm.mp3" type="audio/mpeg" />
-        <source src="/audio/hero-bgm.m4a" type="audio/mp4" />
-        <source src="/audio/hero-bgm.wav" type="audio/wav" />
-        <source src="/audio/hero-bgm.ogg" type="audio/ogg" />
+        <source src={import.meta.env.BASE_URL + 'audio/hero-bgm.mp3'} type="audio/mpeg" />
+        <source src={import.meta.env.BASE_URL + 'audio/hero-bgm.m4a'} type="audio/mp4" />
+        <source src={import.meta.env.BASE_URL + 'audio/hero-bgm.wav'} type="audio/wav" />
+        <source src={import.meta.env.BASE_URL + 'audio/hero-bgm.ogg'} type="audio/ogg" />
       </audio>
 
       {bg === 'image' && (
         <img
-          src="/images/hero-bg.jpg"
+          src={import.meta.env.BASE_URL + 'images/hero-bg.jpg'}
           alt=""
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
@@ -97,7 +98,7 @@ export default function Hero() {
       {showVideo && (
         <video
           key="hero-vid"
-          src="/videos/hero-bg.mp4"
+          src={import.meta.env.BASE_URL + 'videos/hero-bg.mp4'}
           autoPlay
           loop
           muted

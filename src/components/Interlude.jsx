@@ -16,7 +16,7 @@ export default function Interlude({ label, title, subtitle, id }) {
     if (!id) return
     const img = new Image()
     img.onload = () => setHasImg(true)
-    img.src = `/images/interlude-${id}.jpg`
+    img.src = import.meta.env.BASE_URL + `images/interlude-${id}.jpg`
   }, [id])
 
   return (
@@ -27,7 +27,7 @@ export default function Interlude({ label, title, subtitle, id }) {
       {hasImg && (
         <>
           <img
-            src={`/images/interlude-${id}.jpg`}
+            src={import.meta.env.BASE_URL + `images/interlude-${id}.jpg`}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />

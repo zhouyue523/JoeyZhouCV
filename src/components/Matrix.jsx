@@ -52,14 +52,14 @@ function AccountCard({ account, index }) {
       <div className="aspect-[9/16] relative overflow-hidden bg-space cursor-pointer">
         {imgOk ? (
           <img
-            src={`/images/${account.img}.jpg`}
+            src={import.meta.env.BASE_URL + `images/${account.img}.jpg`}
             alt={account.name}
             className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center gap-2 vhs-grad">
             <img
-              src={`/images/${account.img}.jpg`}
+            src={import.meta.env.BASE_URL + `images/${account.img}.jpg`}
               alt=""
               className="hidden"
               onLoad={() => setImgOk(true)}

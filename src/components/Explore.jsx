@@ -76,8 +76,8 @@ function VideoCard({ item, index }) {
       <div className="relative z-10 mb-4">
         {hasVideo ? (
           <video
-            src={`/videos/${item.video}.mp4`}
-            poster={`/images/${item.video}.jpg`}
+            src={import.meta.env.BASE_URL + `videos/${item.video}.mp4`}
+            poster={import.meta.env.BASE_URL + `images/${item.video}.jpg`}
             controls
             className="w-full rounded-xl"
             onError={() => setHasVideo(false)}
