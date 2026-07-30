@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 
 export default function Hero() {
   const ref = useRef(null)
+  const audioRef = useRef(null)
+  const userInteracted = useRef(false)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
@@ -27,12 +29,62 @@ export default function Hero() {
     img.src = '/images/hero-bg.jpg'
   }, [])
 
+  /* ── audio logic ── */
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    audio.muted = true
+    audio.play().catch(() => {})
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!userInteracted.current) return
+        if (entry.isIntersecting) {
+          audio.muted = false
+          audio.play().catch(() => {})
+        } else {
+          audio.pause()
+        }
+      },
+      { threshold: 0.5 }
+    )
+
+    observer.observe(ref.current)
+
+    const enableAudio = () => {
+      if (!userInteracted.current) {
+        userInteracted.current = true
+        audio.muted = false
+        audio.play().catch(() => {})
+      }
+    }
+
+    window.addEventListener('click', enableAudio, { once: true })
+    window.addEventListener('scroll', enableAudio, { once: true })
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('click', enableAudio)
+      window.removeEventListener('scroll', enableAudio)
+      audio.pause()
+    }
+  }, [])
+
   return (
     <section
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 z-10 pointer-events-none neon-frame" />
+
+      {/* Background audio */}
+      <audio ref={audioRef} loop preload="auto" muted className="hidden">
+        <source src="/audio/hero-bgm.mp3" type="audio/mpeg" />
+        <source src="/audio/hero-bgm.m4a" type="audio/mp4" />
+        <source src="/audio/hero-bgm.wav" type="audio/wav" />
+        <source src="/audio/hero-bgm.ogg" type="audio/ogg" />
+      </audio>
 
       {bg === 'image' && (
         <img

@@ -39,15 +39,17 @@ function AccountCard({ account, index }) {
   }
 
   return (
-    <motion.div
+    <motion.a
+      href={account.link}
+      target="_blank"
+      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-30px' }}
       transition={{ delay: index * 0.06 }}
-      className="group relative border border-white/[0.06] rounded-2xl overflow-hidden bg-deep/40 hover:border-amber/20 transition-all duration-500 hover:-translate-y-1"
+      className="group relative block border border-white/[0.06] rounded-2xl overflow-hidden bg-deep/40 hover:border-amber/20 transition-all duration-500 hover:-translate-y-1"
     >
-      {/* Screenshot */}
-      <div className="aspect-[9/16] relative overflow-hidden bg-space">
+      <div className="aspect-[9/16] relative overflow-hidden bg-space cursor-pointer">
         {imgOk ? (
           <img
             src={`/images/${account.img}.jpg`}
@@ -68,9 +70,13 @@ function AccountCard({ account, index }) {
             <span className="text-[7px] text-white/8 font-mono">SCREENSHOT</span>
           </div>
         )}
+        {/* Hover overlay with link hint */}
+        <div className="absolute inset-0 bg-space/0 group-hover:bg-space/20 transition-colors flex items-center justify-center">
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] font-mono text-white/70 bg-space/60 px-3 py-1.5 rounded-full">
+            抖音 ↗
+          </span>
+        </div>
       </div>
-
-      {/* Info */}
       <div className="p-4">
         <div className="flex items-center justify-between">
           <h4 className="text-sm font-bold truncate">{account.name}</h4>
@@ -80,20 +86,15 @@ function AccountCard({ account, index }) {
             {account.cat}
           </span>
         </div>
-        <a
-          href={account.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 flex items-center gap-1.5 text-[9px] tracking-[0.15em] text-ink/40 font-mono hover:text-amber transition-colors"
-        >
+        <div className="mt-3 flex items-center gap-1.5 text-[9px] tracking-[0.15em] text-ink/25 font-mono group-hover:text-amber transition-colors">
           <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19.6 12.2L13.5 18.3C12.7 19.1 11.3 19.1 10.5 18.3L6.8 14.6C6 13.8 6 12.4 6.8 11.6L12.9 5.5C14.7 3.7 17.5 3.7 19.3 5.5L19.6 5.8C21.4 7.6 21.4 10.4 19.6 12.2Z" />
             <path d="M4.2 17.4L3.9 17.1C2.1 15.3 2.1 12.5 3.9 10.7L10 4.6" stroke="currentColor" strokeWidth="2" fill="none" />
           </svg>
-          抖音直达 ↗
-        </a>
+          抖音直达
+        </div>
       </div>
-    </motion.div>
+    </motion.a>
   )
 }
 
