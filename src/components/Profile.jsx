@@ -55,14 +55,14 @@ export default function Profile() {
               <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-2xl overflow-hidden border-2 border-white/[0.12] bg-space/80">
                 {imgOk ? (
                   <img
-                    src={ME.avatar}
+                    src={import.meta.env.BASE_URL + 'images/avatar-ip.png'}
                     alt="IP Avatar"
                     className="w-full h-full object-cover"
                   />
                 ) : (
                   <>
                     <img
-                      src={ME.avatar}
+                    src={import.meta.env.BASE_URL + 'images/avatar-ip.png'}
                       alt=""
                       className="hidden"
                       onLoad={() => setImgOk(true)}
